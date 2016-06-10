@@ -6,6 +6,7 @@ WORKDIR /app
 COPY app $WORKDIR
 COPY cmd.sh /
 
+# Expose port to other containers and accessible to the host
 EXPOSE 9090 9191
 
 # Set the user for all the following lines (including CMD and ENTRYPOINT) 
