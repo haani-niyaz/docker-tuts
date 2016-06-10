@@ -5,4 +5,9 @@ identidock:
   environment:
     ENV: DEV
   volumes:
-    - ./app:/app 
+    - ./app:/app
+  links:
+  - dnmonster
+
+dnmonster:
+  image: amouat/dnmonster:1.0 
