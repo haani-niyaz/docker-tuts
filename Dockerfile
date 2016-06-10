@@ -6,7 +6,8 @@ WORKDIR /app
 COPY app $WORKDIR
 COPY cmd.sh /
 
-# Expose port to other containers and accessible to the host
+# Expose port to other containers. If you do not expose and use publish (-p or -P) docker
+# does an implicit EXPOSE.
 EXPOSE 9090 9191
 
 # Set the user for all the following lines (including CMD and ENTRYPOINT) 
