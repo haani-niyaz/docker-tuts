@@ -1,11 +1,16 @@
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response, request
 import requests
+
 app = Flask(__name__)
 
-@app.route('/')
+
+@app.route('/', methods=['GET','POST'])
 def main_page():
-	# return 'Hello Docker!\n'
-	name = "Billy"
+
+	name = ''
+	if request.method == 'POST':
+		name = request.form['name']
+	
 	return render_template('index.html', name=name)
 
 @app.route('/monster/<name>')
