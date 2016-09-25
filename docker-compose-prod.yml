@@ -1,7 +1,18 @@
+proxy:
+  image: hniyaz/identiproxy:0.1
+  links:
+    - identidock
+  ports:
+    - "80:80"
+  environment:
+    - NGINX_HOST=192.168.33.25
+    - NGINX_PROXY=http://identidock:9090
+
 identidock:
   image: hniyaz/identidock:0.1
-  ports: 
-    - "9090:9090"
+  # No longer need to expose ports
+  # ports: 
+  #   - "9090:9090"
   environment:
     ENV: PROD
   volumes:
